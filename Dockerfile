@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 
 RUN mkdir /home/meteorapp
 ENV WORKDIR /home/meteorapp
+ADD . ./jenkins/workspace/hello-world
 
 # Do basic updates
 # RUN apt-get update -q && apt-get clean
