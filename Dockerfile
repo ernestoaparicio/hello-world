@@ -2,7 +2,8 @@ FROM ubuntu:14.04
 
 RUN mkdir /home/meteorapp
 ENV WORKDIR /home/meteorapp
-ADD . ./jenkins/workspace/hello-world
+ENV JENKINS_APP /jenkins/workspace/hello-world
+ADD . .${JENKINS_APP}
 
 # Do basic updates
 # RUN apt-get update -q && apt-get clean
@@ -10,11 +11,8 @@ ADD . ./jenkins/workspace/hello-world
 # Install Python and Basic Python Tools for binary rebuilds of NPM packages
 # RUN apt-get install -y python python-dev python-distribute python-pip
 
-RUN pwd
-RUN ls
-
 # Move meteorapp
-RUN mv hello-world ${WORKDIR}/meteorapp
+RUN mv  ${JENKINS_APP}/meteorapp
 
 # Get curl in order to download curl
 RUN apt-get install curl -y \
