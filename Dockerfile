@@ -15,12 +15,15 @@ RUN apt-get install -y python python-dev python-distribute python-pip
 RUN mv ${JENKINS_APP} ${WORKDIR}/meteorapp
 
 # Get curl in order to download curl
-RUN apt-get install curl -y \
-    # Install Meteor
-    &&  (curl https://install.meteor.com?release=1.4.1.1 | sh) \
-    &&  cd ${WORKDIR}/meteorapp \
-    # Install the version of Node.js we need. (pegging it to 4.4.7 as we are installing before meteor build)
-    && bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz'
+RUN apt-get install curl -y
+
+# Install Meteor
+RUN (curl https://install.meteor.com?release=1.4.1.1 | sh)
+RUN cd ${WORKDIR}/meteorapp
+RUN ls
+
+# Install the version of Node.js we need. (pegging it to 4.4.7 as we are installing before meteor build)
+RUN bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz'
 
 RUN ls
 
