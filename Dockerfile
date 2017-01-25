@@ -24,7 +24,7 @@ RUN apt-get install curl -y \
 
     # Build the Meteor app
 RUN cd ${WORKDIR} \
-    && meteor build --verbose ../build --directory \
+    && meteor build --verbose build --directory \
     && cd ${WORKDIR}/build/bundle/programs/server \
     && npm install \
     # Get rid of Meteor. We're done with it.
