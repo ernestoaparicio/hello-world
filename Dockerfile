@@ -20,8 +20,11 @@ RUN apt-get install curl -y \
     &&  (curl https://install.meteor.com?release=1.4.1.1 | sh) \
     &&  cd ${WORKDIR}/meteorapp \
     # Install the version of Node.js we need. (pegging it to 4.4.7 as we are installing before meteor build)
-    && bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz' \
-    && cd /usr/local && tar --strip-components 1 -xzf ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz
+    && bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz'
+
+RUN ls
+
+RUN cd /usr/local && tar --strip-components 1 -xzf ${WORKDIR}/meteorapp/required-node-linux-x64.tar.gz
 
 RUN ls ${WORKDIR}/meteorapp
 
