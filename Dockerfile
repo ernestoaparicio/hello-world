@@ -9,6 +9,9 @@ ENV WORKDIR /home/meteorapp
 # Install Python and Basic Python Tools for binary rebuilds of NPM packages
 # RUN apt-get install -y python python-dev python-distribute python-pip
 
+RUN pwd
+RUN ls
+
 # Move meteorapp
 RUN mv hello-world ${WORKDIR}/meteorapp
 
