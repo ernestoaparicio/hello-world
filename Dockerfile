@@ -4,13 +4,13 @@ RUN mkdir /home/meteorapp
 ENV WORKDIR /home/meteorapp
 
 # Do basic updates
-RUN apt-get update -q && apt-get clean
+# RUN apt-get update -q && apt-get clean
 
 # Install Python and Basic Python Tools for binary rebuilds of NPM packages
-RUN apt-get install -y python python-dev python-distribute python-pip
+# RUN apt-get install -y python python-dev python-distribute python-pip
 
 # Move meteorapp
-RUN mv /jenkins/workspace/hello-world ${WORKDIR}/meteorapp
+RUN mv hello-world ${WORKDIR}/meteorapp
 
 # Get curl in order to download curl
 RUN apt-get install curl -y \
