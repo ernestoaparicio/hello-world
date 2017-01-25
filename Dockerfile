@@ -12,7 +12,7 @@ RUN apt-get update -q && apt-get clean
 RUN apt-get install -y python python-dev python-distribute python-pip
 
 # Move meteorapp
-RUN mv ${JENKINS_APP} /meteorapp
+RUN mv ${JENKINS_APP} ${WORKDIR}/meteorapp
 
 # Get curl in order to download curl
 RUN apt-get install curl -y \
